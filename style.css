@@ -1,6 +1,6 @@
 @media (max-width:767px){
-    *{
-        box-sizing: border-box;
+*{
+ box-sizing: border-box;
      }
     body{
     background-color: #E5E5E5;;
@@ -77,6 +77,7 @@ color:rgba(51, 51, 51, 1);
     border-radius: 9px;
     margin-right: 15px;
     box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 .margem{
     margin-left: 10px;
@@ -139,5 +140,17 @@ font-weight: 500;
    font-size: 20px;
     color: 
     rgba(255, 255, 255, 1);
+}
+.selecionado{
+    border-color:rgba(50, 183, 47, 1);
+    border-width: 2px;
+    border-style: solid;
+}
+.check{
+    color:rgba(50, 183, 47, 1);
+    position: absolute;
+    bottom: 16px;
+    right: 15px;
+   font-size: 17px;
 }
 }
