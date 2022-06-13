@@ -5,7 +5,8 @@ let doces;
 let precoPrato = 0;
 let precoBebida = 0;
 let precoDoces = 0;
-let valorfinal = 0;
+let valorfinal = 0; 
+let precofinal = 0;
 let msgfinal = "";
 
 function opcaoPrato(elemento){
@@ -69,11 +70,23 @@ function opcaoDoces(elemento){
  }
 
  function precoTotal(preco){
-valorfinal = valorfinal + preco;
-console.log(valorfinal);
+valorfinal = (valorfinal + preco);
+precofinal = valorfinal.toFixed(2);
  }
 
- function minhaString(){
-    msgfinal = "voce é feia \n mentitniha";
-    console.log (msgfinal);
- }
+ function meuPedido(){
+    let pedidoPrato = document.querySelector(".pratos .selecionado h1").innerHTML;
+    let pedidoBebida = document.querySelector(".bebidas .selecionado h1").innerHTML;
+    let pedidoDoce = document.querySelector(".doces .selecionado h1").innerHTML;
+    return encodeURIComponent(`Olá, gostaria de fazer o pedido:\n
+    - Prato: ${pedidoPrato} \n
+    - Bebida: ${pedidoBebida} \n
+    - Sobremesa: ${pedidoDoce}\n
+    Total: R$ ${precofinal}`);
+}
+
+function enviamsg() {
+let texto = meuPedido();
+
+window.open(`https://api.whatsapp.com/send?phone=5522999686953&text=${texto}`);
+}
