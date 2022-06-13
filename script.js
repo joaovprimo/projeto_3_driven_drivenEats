@@ -6,6 +6,7 @@ let precoPrato = 0;
 let precoBebida = 0;
 let precoDoces = 0;
 let valorfinal = 0;
+let msgfinal = "";
 
 function opcaoPrato(elemento){
     prato = elemento.innerHTML;
@@ -70,4 +71,9 @@ function opcaoDoces(elemento){
  function precoTotal(preco){
 valorfinal = valorfinal + preco;
 console.log(valorfinal);
+ }
+
+ function minhaString(){
+    msgfinal = "voce é feia \n mentitniha";
+    console.log (msgfinal);
  }
