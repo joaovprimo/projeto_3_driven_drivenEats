@@ -17,7 +17,6 @@ if (opcaoClicadaprato !== null){
     }
 elemento.classList.add("selecionado");
 liberaBotao();
-buscaValorprato();
 }
 
 function opcaoBebida(elemento){
@@ -28,7 +27,6 @@ function opcaoBebida(elemento){
         }
     elemento.classList.add("selecionado");
     liberaBotao();
-    buscaValorbebida();
     }
 
 function opcaoDoces(elemento){
@@ -39,7 +37,6 @@ function opcaoDoces(elemento){
             }
         elemento.classList.add("selecionado");
         liberaBotao();
-        buscaValordoce();
         }
 
  function liberaBotao(){
@@ -50,34 +47,28 @@ function opcaoDoces(elemento){
         textobotao.innerHTML = 'Fechar pedido';
    } 
  }  
- function buscaValorprato (){
-    let valorPrato = document.querySelector(".pratos .selecionado .preco p");
-    valorPrato = valorPrato.innerHTML;
-    precoPrato = Number (valorPrato);
-    precoTotal(precoPrato);
- }
- function buscaValorbebida (){
-    let  valorBebida = document.querySelector(".bebidas .selecionado .preco p"); 
-    valorBebida = valorBebida.innerHTML;
-    precoBebida = Number (valorBebida); 
-    precoTotal(precoBebida);
- }
- function buscaValordoce (){
-    let  valorDoce = document.querySelector(".doces .selecionado .preco p"); 
-    valorDoce = valorDoce.innerHTML;
-    precoDoces = Number (valorDoce); 
-    precoTotal(precoDoces);
- }
-
- function precoTotal(preco){
-valorfinal = (valorfinal + preco);
-precofinal = valorfinal.toFixed(2);
- }
 
  function meuPedido(){
+    let valorPrato = document.querySelector(".pratos .selecionado .preco p");
+    let  valorBebida = document.querySelector(".bebidas .selecionado .preco p"); 
+    let  valorDoce = document.querySelector(".doces .selecionado .preco p");
+
     let pedidoPrato = document.querySelector(".pratos .selecionado h1").innerHTML;
     let pedidoBebida = document.querySelector(".bebidas .selecionado h1").innerHTML;
     let pedidoDoce = document.querySelector(".doces .selecionado h1").innerHTML;
+    
+    valorPrato = valorPrato.innerHTML;
+    precoPrato = Number (valorPrato);
+
+    valorBebida = valorBebida.innerHTML;
+    precoBebida = Number (valorBebida); 
+
+    valorDoce = valorDoce.innerHTML;
+    precoDoces = Number (valorDoce); 
+
+    valorfinal = (precoPrato + precoBebida + precoDoces);
+    precofinal = valorfinal.toFixed(2);
+
     return encodeURIComponent(`Olá, gostaria de fazer o pedido:\n
     - Prato: ${pedidoPrato} \n
     - Bebida: ${pedidoBebida} \n
